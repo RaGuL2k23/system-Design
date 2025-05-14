@@ -1,0 +1,11 @@
+const rateLimit = require('express-rate-limit');
+
+const getRateLimiter = (config) => {
+    return rateLimit({
+        windowMs: config.windowMs,
+        max: config.max,
+        message: 'Too many requests. Please try again later.'
+    });
+};
+
+module.exports = { getRateLimiter };
